@@ -416,10 +416,9 @@ def graphics_app():
     [документации](seaborn.pydata.org/generated/seaborn.heatmap.html).
     """)
 
-    def display_heatmap(df, columns, annot, palette='Blues'):
+    def display_heatmap(df, columns, annot):
         fig, ax = plt.subplots()
-        sns.heatmap(df[columns].corr(), ax=ax, annot=annot, linewidths=.5, square=True, fmt='.2f',
-                    palette=palette)
+        sns.heatmap(df[columns].corr(), ax=ax, annot=annot, linewidths=.5, square=True, fmt='.2f')
         st.write(fig)
 
     with st.beta_expander('Основные настройки графика'):
@@ -429,19 +428,15 @@ def graphics_app():
                                          numeric_columns, default=numeric_columns)
     st.write('\n\n')
 
-    with st.beta_expander('Настройки дизайна графика'):
-        heatmap_palette = st.selectbox('Выберите тему для графика',
-                                       PALETTE_LIST_SEABORN)
-
     st.write('\n\n')
     if st.button('Построить график', key='heatmap_button'):
-        try:
-            display_heatmap(dataset, heatmap_columns, heatmap_annotation, heatmap_palette)
-        except Exception:
-            st.info("""
-            При построении графика произошла ошибка.
-            Попробуйте ещё раз или измените параметры отображения.
-            """)
+        # try:
+        display_heatmap(dataset, heatmap_columns, heatmap_annotation)
+        # except Exception:
+        #     st.info("""
+        #     При построении графика произошла ошибка.
+        #     Попробуйте ещё раз или измените параметры отображения.
+        #     """)
 
     st.markdown("""
     ## <a id='part2.5'>Pandas Profiling</a>
