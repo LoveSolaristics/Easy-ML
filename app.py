@@ -430,13 +430,13 @@ def graphics_app():
 
     st.write('\n\n')
     if st.button('Построить график', key='heatmap_button'):
-        # try:
-        display_heatmap(dataset, heatmap_columns, heatmap_annotation)
-        # except Exception:
-        #     st.info("""
-        #     При построении графика произошла ошибка.
-        #     Попробуйте ещё раз или измените параметры отображения.
-        #     """)
+        try:
+            display_heatmap(dataset, heatmap_columns, heatmap_annotation)
+        except Exception:
+            st.info("""
+            При построении графика произошла ошибка.
+            Попробуйте ещё раз или измените параметры отображения.
+            """)
 
     st.markdown("""
     ## <a id='part2.5'>Pandas Profiling</a>
@@ -903,7 +903,7 @@ def model_app():
 
                 x, y = df[regression_features], df[regression_target]
                 model = models[regression_model_name]
-                model.fit(x,y)
+                model.fit(x, y)
                 y_pred = model.predict(x)
                 plt.scatter(y_pred, y)
                 plt.title("Предсказание vs реальность")
