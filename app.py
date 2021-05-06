@@ -906,7 +906,7 @@ def model_app():
                 прямой, направленной под углом 45 градуусов.
                 """)
 
-                x, y = dataset[regression_features], dataset[regression_target]
+                x, y = df[regression_features], df[regression_target]
                 model = models[regression_model_name]
                 model.fit(x,y)
                 y_pred = model.predict(x)
