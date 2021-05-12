@@ -37,8 +37,6 @@ st.set_page_config(
 app = MultiApp()
 
 
-# TODO: добавить оглавления из якорных ссылок на каждую из страниц
-
 def load_dataset():
     st.sidebar.markdown("""
     # Загрузка данных
@@ -468,10 +466,6 @@ def graphics_app():
     
     pandas_profiling.ProfileReport(your_dataset)
     """)
-
-    if st.button('Построить статистики', key='profile_button'):
-        profile = ProfileReport(dataset)
-        st_profile_report(profile)
 
     st.markdown("""
     ## <a id='part2.6'>Полезные ссылочки</a>
