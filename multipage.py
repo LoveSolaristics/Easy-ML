@@ -105,10 +105,10 @@ class MultiPage:
 
 		pag = read_page()
 
-		container_1 = st.beta_container()
+		container_1 = st.container()
 
 		if pag == -1:
-			container_2 = st.beta_container()
+			container_2 = st.container()
 			placeholder = st.empty()
 			with container_2:
 				if placeholder.button(self.start_button):
@@ -120,7 +120,7 @@ class MultiPage:
 				self.__initial_page.func()
 
 			else:
-				side_1, side_2 = st.sidebar.beta_columns(2)
+				side_1, side_2 = st.sidebar.columns(2)
 
 				with side_1:
 					if st.button(self.previous_page_button):
