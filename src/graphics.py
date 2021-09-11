@@ -106,7 +106,7 @@ def graphics_app(prev_vars=None):
         pairplot = sns.pairplot(df[columns], hue=hue, palette=palette)
         st.pyplot(pairplot)
 
-    with st.expander('Основные настройки графика'):
+    with st.beta_expander('Основные настройки графика'):
         allowed_columns = st.multiselect('Выберите колонки для построения графика', dataset_columns,
                                          default=dataset_columns)
 
@@ -118,7 +118,7 @@ def graphics_app(prev_vars=None):
         pairplot_hue = st.selectbox('Столбец для кодирования цета',
                                     [None] + pairplot_hue_columns)
 
-    with st.expander('Настройки дизайна графика'):
+    with st.beta_expander('Настройки дизайна графика'):
         pairplot_palette = st.selectbox('Выберите палитру для графика',
                                         PALETTE_LIST_SEABORN, key='pairplot_palette')
 
@@ -152,14 +152,14 @@ def graphics_app(prev_vars=None):
         fig = sns.displot(data=df, x=column, kind=kind)
         st.pyplot(fig)
 
-    with st.expander('Основные настройки графика'):
+    with st.beta_expander('Основные настройки графика'):
         distplot_kind = st.selectbox('Выберите тип графика', ['hist', 'kde', 'ecdf'])
 
         distplot_column = st.selectbox('Выберите столбец для построения распределения',
                                        dataset_columns)
     st.write("\n\n")
 
-    with st.expander('Настройки дизайна графика'):
+    with st.beta_expander('Настройки дизайна графика'):
         distplot_palette = st.selectbox('Выберите палитру для графика',
                                         PALETTE_LIST_SEABORN)
     st.write("\n\n")
@@ -196,7 +196,7 @@ def graphics_app(prev_vars=None):
             fig.update_traces(textposition='inside', textinfo='percent+label')
             st.plotly_chart(fig)
 
-    with st.expander('Основные настройки графика'):
+    with st.beta_expander('Основные настройки графика'):
         values_column = st.selectbox('Выберите столбец значений',
                                      dataset_columns)
 
@@ -207,7 +207,7 @@ def graphics_app(prev_vars=None):
                                             dataset_columns)
     st.write('\n\n')
 
-    with st.expander('Настройки дизайна графика'):
+    with st.beta_expander('Настройки дизайна графика'):
         pieplot_template = st.selectbox('Выберите тему для графика',
                                         [None] + list(pio.templates))
     st.write('\n\n')
@@ -240,7 +240,7 @@ def graphics_app(prev_vars=None):
         sns.heatmap(df[columns].corr(), ax=ax, annot=annot, linewidths=.5, square=True, fmt='.2f')
         st.write(fig)
 
-    with st.expander('Основные настройки графика'):
+    with st.beta_expander('Основные настройки графика'):
         heatmap_annotation = st.selectbox('Нужно ли выводить цифры корреляции', [True, False])
 
         heatmap_columns = st.multiselect('Выберите числовые столбцы для графика',
