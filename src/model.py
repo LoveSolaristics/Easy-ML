@@ -61,7 +61,7 @@ def model_app(prev_vars=None):
         if classification_target is None:
             st.info('Выберите target. Для стандартного датасета следует выбрать столбец Survived.')
         else:
-            with st.beta_expander('Дополнительные настройки классификации'):
+            with st.expander('Дополнительные настройки классификации'):
                 classification_test_size = st.slider('Размер тестовой выборки от всего '
                                                      'объема датасета', min_value=0.1, max_value=0.5,
                                                      step=0.05, value=0.3)
@@ -313,7 +313,7 @@ def model_app(prev_vars=None):
         if regression_target is None:
             st.info('Выберите target. Для стандартного датасета следует выбрать столбец Survived.')
         else:
-            with st.beta_expander('Дополнительные настройки регрессии'):
+            with st.expander('Дополнительные настройки регрессии'):
                 regression_n_splits = st.slider('Кроличество разбиений', min_value=5, max_value=20,
                                                 step=1, value=10)
 
