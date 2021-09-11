@@ -6,4 +6,8 @@ enableCORS = false
 
 [runner]
 magicEnabled = false
+
+[logger]
+
+level = 'error'
 " > ~/.streamlit/config.toml
