@@ -12,7 +12,6 @@ st.set_page_config(
     page_title="Easy ML", page_icon='💙',
 )
 
-start_app()  # Clears the cache when the app is started
 app = MultiPage()
 
 # app.start_button = "Поехали!"
